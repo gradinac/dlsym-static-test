@@ -1,0 +1,7 @@
+FROM ubuntu:18.04
+WORKDIR /build
+RUN apt-get update && \
+    apt-get install -y build-essential
+COPY src/main.c compile_and_run_tests.sh ./
+RUN chmod +x compile_and_run_tests.sh
+ENTRYPOINT './compile_and_run_tests.sh'

@@ -1,0 +1,6 @@
+FROM alpine:3.11
+WORKDIR /build
+RUN apk add --no-cache build-base
+COPY src/main.c compile_and_run_tests.sh ./
+RUN chmod +x compile_and_run_tests.sh
+ENTRYPOINT './compile_and_run_tests.sh'

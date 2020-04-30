@@ -1,0 +1,6 @@
+FROM oraclelinux:6.10
+WORKDIR /build
+RUN yum install -y gcc glibc-static
+COPY src/main.c compile_and_run_tests.sh ./
+RUN chmod +x compile_and_run_tests.sh
+ENTRYPOINT './compile_and_run_tests.sh'
